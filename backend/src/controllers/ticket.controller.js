@@ -179,7 +179,7 @@ const getTicketById = async (req, res, next) => {
       LEFT JOIN categories cat ON cat.id = t.category_id
       LEFT JOIN employees e ON e.id = t.assigned_to
       LEFT JOIN tickets dup ON dup.id = t.duplicate_of_ticket_id
-      WHERE t.id = $1 OR t.ticket_number = $1
+      WHERE t.id::text = $1 OR t.ticket_number = $1
     `;
 
     const ticketRes = await db.query(ticketSql, [id]);
