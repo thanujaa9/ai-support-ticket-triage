@@ -32,13 +32,13 @@ SELECT setval('sla_policies_id_seq', (SELECT MAX(id) FROM sla_policies));
 
 -- ----------------------------------------------------------------------------
 -- 3. EMPLOYEES (Password for all: 'Password123!' -> bcrypt hashed)
--- bcrypt hash: $2a$10$7EqJtq98hPqEX7fNZaFWoOhiMh6vO7d1P6Kz7A.eQ6V2M0H6p8V2a
+-- bcrypt hash: $2a$10$Sm6YP1wsffKiKqaGW2uhj.geUdwnp4oFdyX9Wy2b2LPFvPF9sSk5S
 -- ----------------------------------------------------------------------------
 INSERT INTO employees (id, name, email, password_hash, role, is_active) VALUES
-(1, 'Alex Mercer (Admin)', 'admin@triage.local', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiMh6vO7d1P6Kz7A.eQ6V2M0H6p8V2a', 'admin', true),
-(2, 'Sarah Connor', 'sarah.agent@triage.local', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiMh6vO7d1P6Kz7A.eQ6V2M0H6p8V2a', 'agent', true),
-(3, 'David Chen', 'david.agent@triage.local', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiMh6vO7d1P6Kz7A.eQ6V2M0H6p8V2a', 'agent', true),
-(4, 'Priya Patel', 'priya.agent@triage.local', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiMh6vO7d1P6Kz7A.eQ6V2M0H6p8V2a', 'agent', true);
+(1, 'Alex Mercer (Admin)', 'admin@triage.local', '$2a$10$Sm6YP1wsffKiKqaGW2uhj.geUdwnp4oFdyX9Wy2b2LPFvPF9sSk5S', 'admin', true),
+(2, 'Sarah Connor', 'sarah.agent@triage.local', '$2a$10$Sm6YP1wsffKiKqaGW2uhj.geUdwnp4oFdyX9Wy2b2LPFvPF9sSk5S', 'agent', true),
+(3, 'David Chen', 'david.agent@triage.local', '$2a$10$Sm6YP1wsffKiKqaGW2uhj.geUdwnp4oFdyX9Wy2b2LPFvPF9sSk5S', 'agent', true),
+(4, 'Priya Patel', 'priya.agent@triage.local', '$2a$10$Sm6YP1wsffKiKqaGW2uhj.geUdwnp4oFdyX9Wy2b2LPFvPF9sSk5S', 'agent', true);
 
 SELECT setval('employees_id_seq', (SELECT MAX(id) FROM employees));
 
@@ -135,7 +135,7 @@ INSERT INTO tickets (id, ticket_number, customer_id, category_id, assigned_to, s
 (8, 'TIC-1008', 3, 1, 2, 
  'Request for Q3 2026 invoice PDF copies for corporate audit', 
  'Could your billing department please resend PDF copies of paid invoices for July, August, and September 2026? Need them for our fiscal year audit.', 
- 'resolved', 'low', 'neutral', CURRENT_TIMESTAMP - INTERVAL '50 hours', false, false, NULL, NULL, CURRENT_TIMESTAMP - INTERVAL '4 hours', CURRENT_TIMESTAMP - INTERVAL '80 hours');
+ 'resolved', 'low', 'neutral', CURRENT_TIMESTAMP - INTERVAL '50 hours', false, false, NULL, CURRENT_TIMESTAMP - INTERVAL '4 hours', CURRENT_TIMESTAMP - INTERVAL '80 hours');
 
 SELECT setval('tickets_id_seq', (SELECT MAX(id) FROM tickets));
 
