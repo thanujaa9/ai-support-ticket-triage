@@ -138,6 +138,7 @@ INSERT INTO tickets (id, ticket_number, customer_id, category_id, assigned_to, s
  'resolved', 'low', 'neutral', CURRENT_TIMESTAMP - INTERVAL '50 hours', false, false, NULL, CURRENT_TIMESTAMP - INTERVAL '4 hours', CURRENT_TIMESTAMP - INTERVAL '80 hours');
 
 SELECT setval('tickets_id_seq', (SELECT MAX(id) FROM tickets));
+SELECT setval('ticket_number_seq', (SELECT MAX(SUBSTRING(ticket_number FROM 5)::int) FROM tickets));
 
 -- ----------------------------------------------------------------------------
 -- 7. TICKET HISTORY (AUDIT LOGS)
