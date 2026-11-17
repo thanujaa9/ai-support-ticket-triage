@@ -27,11 +27,58 @@ The system automates ticket classification, sentiment analysis, priority assignm
   - [x] Partial index for active SLA monitoring
   - [x] Automated PostgreSQL triggers for `updated_at`, ticket number formatting (`TIC-1001`), SLA due date calculations, and audit history logging
   - [x] Realistic seed dataset
-- [ ] **Stage 2: Backend Architecture & Core REST APIs**
-- [ ] **Stage 3: Authentication & Role-Based Access Control (Admin / Agent)**
-- [ ] **Stage 4: Frontend Development (Dashboard, Ticket Views, Customer Portal)**
-- [ ] **Stage 5: AI Integration & Human-in-the-Loop Review Engine**
-- [ ] **Stage 6: SQL Analytics, SLA Overdue Monitor & LLM Run Debugger**
+- [x] **Stage 2: Backend Architecture & Core REST APIs**
+  - [x] Express layered architecture (`config/`, `middleware/`, `controllers/`, `routes/`, `services/`)
+  - [x] PostgreSQL connection pool (`pg.Pool`) with atomic transactions
+  - [x] Full CRUD, multi-criteria filtering, full-text search, and pagination
+- [x] **Stage 3: Authentication & Role-Based Access Control (Admin / Agent)**
+  - [x] Secure JWT token signing & verification
+  - [x] Bcrypt password hashing (Cost factor 10)
+  - [x] Role-based access control (`requireRole('admin')`)
+- [x] **Stage 4: Frontend Development**
+  - [x] Support Operations Dashboard with live KPIs
+  - [x] Ticket Queue with multi-filter bar, sorting, and priority pulsing badges
+  - [x] Ticket Details with conversational comments, internal notes, and audit history
+  - [x] Customer-facing Ticket Submission Portal with live duplicate warnings
+  - [x] Modern, responsive SaaS design system
+- [x] **Stage 5: AI Integration & Human-in-the-Loop Review Engine**
+  - [x] Provider-agnostic AI adapter (Google Gemini API free tier + OpenAI API)
+  - [x] Smart rule-based heuristic fallback engine (100% operational with zero keys)
+  - [x] Automated classification, priority estimation, sentiment scoring, and first reply drafting
+  - [x] Human-in-the-loop review workflow (Approve & Send, Inline Edit, Reject with Feedback)
+  - [x] 3-bullet thread summarization
+- [x] **Stage 6: SQL Analytics, SLA Overdue Monitor & LLM Run Debugger**
+  - [x] KPI metrics & Chart.js visualizations (Category distribution, Priority breakdown)
+  - [x] Support Agent performance leaderboard
+  - [x] Prompt version governance and acceptance rate benchmarks
+  - [x] Interactive LLM Run Debugger with raw payload inspection drawer and telemetry logs
+
+---
+
+## 💻 Running the Application
+
+### 1. Backend Server
+```bash
+cd backend
+npm install
+node src/server.js
+# Runs at http://localhost:5001
+```
+
+### 2. Frontend React Client
+```bash
+cd frontend
+npm install
+npm run dev
+# Runs at http://localhost:3000 (proxies /api to :5001)
+```
+
+### 3. Demo Credentials
+| Role | Email | Password |
+|---|---|---|
+| **Admin** | `admin@triage.local` | `Password123!` |
+| **Agent** | `sarah.agent@triage.local` | `Password123!` |
+| **Agent** | `david.agent@triage.local` | `Password123!` |
 
 ---
 
