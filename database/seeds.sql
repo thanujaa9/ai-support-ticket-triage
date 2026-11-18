@@ -1,6 +1,6 @@
 -- ============================================================================
 -- AI SUPPORT TICKET TRIAGE - SEED DATA
--- Realistic dataset for development, interview demonstrations, and analytics
+-- Realistic dataset for development, testing, and analytics
 -- ============================================================================
 
 -- Clean existing data
@@ -209,7 +209,7 @@ INSERT INTO llm_calls (id, ticket_id, prompt_version_id, operation_type, model, 
  '{"is_duplicate": true, "duplicate_of_ticket_id": 2, "confidence": 0.95, "explanation": "Both tickets report HTTP 500 errors on payment webhook listener endpoints starting today morning."}'::jsonb,
  480, 72, 552, 710, 0.000098, 'success', NULL, CURRENT_TIMESTAMP - INTERVAL '1 hour 55 minutes'),
 
--- Example of a failed / fallback call (Useful for the LLM Debugger interview story!)
+-- Example of a failed / fallback call (Useful for LLM Debugger telemetry validation)
 (4, 7, 2, 'triage_classification', 'gpt-4o-mini',
  '{"messages": [{"role": "system", "content": "You are an enterprise support triage AI..."}, {"role": "user", "content": "..."}]}'::jsonb,
  NULL, 310, 0, 310, 5200, 0.000000, 'fallback', 'OpenAI API Rate Limit Reached (429 Too Many Requests). System executed rule-based keyword fallback.', CURRENT_TIMESTAMP - INTERVAL '60 hours');
